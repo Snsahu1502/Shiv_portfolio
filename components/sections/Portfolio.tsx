@@ -213,20 +213,18 @@ export default function Portfolio() {
                     transition: 'transform 0.25s ease'
                   }}
                   onMouseEnter={(e) => {
-                    const figure = e.currentTarget
-                    const img = figure.querySelector('img') as HTMLImageElement
-                    const icon = figure.querySelector('.project-icon') as HTMLDivElement
-                    const overlay = figure.querySelector('.project-overlay') as HTMLDivElement
+                    const img = e.currentTarget.querySelector('img') as HTMLImageElement
+                    const icon = e.currentTarget.querySelector('.project-icon') as HTMLDivElement
+                    const overlay = e.currentTarget.querySelector('.project-overlay') as HTMLDivElement
                     
                     if (img) img.style.transform = 'scale(1.1)'
                     if (icon) icon.style.opacity = '1'
                     if (overlay) overlay.style.opacity = '0.5'
                   }}
                   onMouseLeave={(e) => {
-                    const figure = e.currentTarget
-                    const img = figure.querySelector('img') as HTMLImageElement
-                    const icon = figure.querySelector('.project-icon') as HTMLDivElement
-                    const overlay = figure.querySelector('.project-overlay') as HTMLDivElement
+                    const img = e.currentTarget.querySelector('img') as HTMLImageElement
+                    const icon = e.currentTarget.querySelector('.project-icon') as HTMLDivElement
+                    const overlay = e.currentTarget.querySelector('.project-overlay') as HTMLDivElement
                     
                     if (img) img.style.transform = 'scale(1)'
                     if (icon) icon.style.opacity = '0'
