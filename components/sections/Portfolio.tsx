@@ -213,17 +213,21 @@ export default function Portfolio() {
                     transition: 'transform 0.25s ease'
                   }}
                   onMouseEnter={(e) => {
-                    const img = e.currentTarget.querySelector('img')
-                    const icon = e.currentTarget.querySelector('.project-icon')
-                    const overlay = e.currentTarget.querySelector('.project-overlay')
+                    const figure = e.currentTarget
+                    const img = figure.querySelector('img') as HTMLImageElement
+                    const icon = figure.querySelector('.project-icon') as HTMLDivElement
+                    const overlay = figure.querySelector('.project-overlay') as HTMLDivElement
+                    
                     if (img) img.style.transform = 'scale(1.1)'
                     if (icon) icon.style.opacity = '1'
                     if (overlay) overlay.style.opacity = '0.5'
                   }}
                   onMouseLeave={(e) => {
-                    const img = e.currentTarget.querySelector('img')
-                    const icon = e.currentTarget.querySelector('.project-icon')
-                    const overlay = e.currentTarget.querySelector('.project-overlay')
+                    const figure = e.currentTarget
+                    const img = figure.querySelector('img') as HTMLImageElement
+                    const icon = figure.querySelector('.project-icon') as HTMLDivElement
+                    const overlay = figure.querySelector('.project-overlay') as HTMLDivElement
+                    
                     if (img) img.style.transform = 'scale(1)'
                     if (icon) icon.style.opacity = '0'
                     if (overlay) overlay.style.opacity = '0'
@@ -273,7 +277,7 @@ export default function Portfolio() {
                     src={project.image} 
                     alt={project.title} 
                     fill
-                    sizes={`(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw`}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     style={{ 
                       objectFit: 'cover',
                       objectPosition: 'center',
