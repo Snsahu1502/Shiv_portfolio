@@ -6,17 +6,15 @@ import IonIcon from "@reacticons/ionicons";
 
 export default function Sidebar() {
   const [isActive, setIsActive] = useState(false);
-
   return (
     <aside className={`sidebar ${isActive ? "active" : ""}`} data-sidebar>
       <div className="sidebar-info">
         <figure className="avatar-box">
-          
           <Image
             src="/assets/images/my-avatar.png"
             alt="Shivnarayan Sahu"
-            width={80}
-            height={80}
+            width={150}
+            height={150}
             priority
             style={{
               width: "auto",
