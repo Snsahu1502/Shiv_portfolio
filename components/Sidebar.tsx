@@ -16,10 +16,7 @@ export default function Sidebar() {
             width={150}
             height={150}
             priority
-            style={{
-              width: "auto",
-              height: "auto",
-            }}
+            style={{ width: "auto", height: "auto" }}
           />
         </figure>
 
