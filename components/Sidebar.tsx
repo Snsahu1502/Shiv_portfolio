@@ -11,7 +11,7 @@ export default function Sidebar() {
       <div className="sidebar-info">
         <figure className="avatar-box">
           <Image
-            src="/public/assets/images/shiiv.png"
+            src="/assets/images/shiiv.png"
             alt="Shivnarayan Sahu"
             width={150}
             height={150}
