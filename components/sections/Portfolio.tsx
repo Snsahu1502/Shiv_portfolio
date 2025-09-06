@@ -151,22 +151,11 @@ export default function Portfolio() {
             <li 
               key={project.id}
               className="project-item active"
-              style={{ 
-                display: 'block',
-                animation: 'scaleUp 0.25s ease forwards'
-              }}
+              style={{ display: 'block' }}
             >
-              <a 
-                href="#"
-                style={{
-                  display: 'block',
-                  textDecoration: 'none',
-                  color: 'inherit',
-                  cursor: 'pointer'
-                }}
-              >
+              <a href="#" style={{ display: 'block', textDecoration: 'none', color: 'inherit' }}>
                 <figure 
-                  className="project-img project-hover-container"
+                  className="project-img"
                   style={{
                     position: 'relative',
                     width: '100%',
@@ -177,7 +166,6 @@ export default function Portfolio() {
                     backgroundColor: 'var(--eerie-black-1)'
                   }}
                 >
-                  {/* Overlay */}
                   <div 
                     className="project-overlay"
                     style={{
@@ -193,7 +181,6 @@ export default function Portfolio() {
                     }}
                   />
                   
-                  {/* Eye Icon */}
                   <div
                     className="project-icon"
                     style={{
@@ -241,15 +228,15 @@ export default function Portfolio() {
       </section>
 
       <style jsx>{`
-        .project-hover-container:hover .project-overlay {
+        .project-img:hover .project-overlay {
           opacity: 0.5 !important;
         }
         
-        .project-hover-container:hover .project-icon {
+        .project-img:hover .project-icon {
           opacity: 1 !important;
         }
         
-        .project-hover-container:hover img {
+        .project-img:hover img {
           transform: scale(1.1) !important;
         }
       `}</style>
