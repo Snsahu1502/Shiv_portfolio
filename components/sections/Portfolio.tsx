@@ -119,6 +119,39 @@ export default function Portfolio() {
     }
   }
 
+  // Handle hover effects with proper type checking
+  const handleMouseEnter = (e: React.MouseEvent<HTMLElement>) => {
+    const img = e.currentTarget.querySelector('img') as HTMLImageElement | null
+    const icon = e.currentTarget.querySelector('.project-icon') as HTMLDivElement | null
+    const overlay = e.currentTarget.querySelector('.project-overlay') as HTMLDivElement | null
+    
+    if (img) {
+      (img as HTMLImageElement).style.transform = 'scale(1.1)'
+    }
+    if (icon) {
+      (icon as HTMLDivElement).style.opacity = '1'
+    }
+    if (overlay) {
+      (overlay as HTMLDivElement).style.opacity = '0.5'
+    }
+  }
+
+  const handleMouseLeave = (e: React.MouseEvent<HTMLElement>) => {
+    const img = e.currentTarget.querySelector('img') as HTMLImageElement | null
+    const icon = e.currentTarget.querySelector('.project-icon') as HTMLDivElement | null
+    const overlay = e.currentTarget.querySelector('.project-overlay') as HTMLDivElement | null
+    
+    if (img) {
+      (img as HTMLImageElement).style.transform = 'scale(1)'
+    }
+    if (icon) {
+      (icon as HTMLDivElement).style.opacity = '0'
+    }
+    if (overlay) {
+      (overlay as HTMLDivElement).style.opacity = '0'
+    }
+  }
+
   return (
     <article className="portfolio active" data-page="portfolio">
       <header>
@@ -212,24 +245,8 @@ export default function Portfolio() {
                     backgroundColor: 'var(--eerie-black-1)',
                     transition: 'transform 0.25s ease'
                   }}
-                  onMouseEnter={(e) => {
-                    const img = e.currentTarget.querySelector('img') as HTMLImageElement
-                    const icon = e.currentTarget.querySelector('.project-icon') as HTMLDivElement
-                    const overlay = e.currentTarget.querySelector('.project-overlay') as HTMLDivElement
-                    
-                    if (img) img.style.transform = 'scale(1.1)'
-                    if (icon) icon.style.opacity = '1'
-                    if (overlay) overlay.style.opacity = '0.5'
-                  }}
-                  onMouseLeave={(e) => {
-                    const img = e.currentTarget.querySelector('img') as HTMLImageElement
-                    const icon = e.currentTarget.querySelector('.project-icon') as HTMLDivElement
-                    const overlay = e.currentTarget.querySelector('.project-overlay') as HTMLDivElement
-                    
-                    if (img) img.style.transform = 'scale(1)'
-                    if (icon) icon.style.opacity = '0'
-                    if (overlay) overlay.style.opacity = '0'
-                  }}
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
                 >
                   {/* Overlay */}
                   <div 
