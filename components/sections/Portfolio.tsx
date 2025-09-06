@@ -9,7 +9,6 @@ export default function Portfolio() {
   const [selectOpen, setSelectOpen] = useState(false)
   const [screenSize, setScreenSize] = useState('desktop')
 
-  // Handle responsive grid columns
   useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth
@@ -22,7 +21,7 @@ export default function Portfolio() {
       }
     }
 
-    handleResize() // Initial check
+    handleResize()
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize)
   }, [])
@@ -33,7 +32,6 @@ export default function Portfolio() {
       title: 'Trading-Bot',
       category: 'web development',
       image: '/assets/images/project-1.jpg',
-      description: 'Trading bot web application frontend using React.js and Tailwind CSS with MetaTrader 5 integration.',
       tech: 'React.js, Tailwind CSS, MetaTrader 5'
     },
     {
@@ -41,7 +39,6 @@ export default function Portfolio() {
       title: 'Wanderlust',
       category: 'web development',
       image: '/assets/images/project-2.png',
-      description: 'Full-stack Airbnb clone with authentication, CRUD operations, and responsive UI.',
       tech: 'MongoDB, Express.js, Node.js, EJS'
     },
     {
@@ -49,7 +46,6 @@ export default function Portfolio() {
       title: 'SEO Roofer Web App',
       category: 'web design',
       image: '/assets/images/project-3.jpg',
-      description: 'Static website for roofing service business with SEO-optimized content.',
       tech: 'HTML, CSS, JavaScript'
     },
     {
@@ -57,24 +53,7 @@ export default function Portfolio() {
       title: 'Assist4you Platform',
       category: 'web development',
       image: '/assets/images/project-4.png',
-      description: 'Remote staffing and recruitment platform with database management.',
       tech: 'HTML, CSS, JavaScript, Node.js, SQLite3'
-    },
-    {
-      id: 5,
-      title: 'E-commerce Dashboard',
-      category: 'web development',
-      image: '/assets/images/project-5.png',
-      description: 'Admin dashboard for e-commerce management.',
-      tech: 'React.js, Chart.js, API Integration'
-    },
-    {
-      id: 6,
-      title: 'Portfolio Website',
-      category: 'web design',
-      image: '/assets/images/project-6.png',
-      description: 'Personal portfolio website with modern design.',
-      tech: 'Next.js, Tailwind CSS, TypeScript'
     }
   ]
 
@@ -93,29 +72,21 @@ export default function Portfolio() {
     activeFilter === 'all' || project.category === activeFilter
   )
 
-  // Define responsive grid columns
   const getGridColumns = () => {
     switch (screenSize) {
-      case 'mobile':
-        return '1fr'
-      case 'tablet':
-        return 'repeat(2, 1fr)'
+      case 'mobile': return '1fr'
+      case 'tablet': return 'repeat(2, 1fr)'
       case 'desktop':
-      default:
-        return 'repeat(3, 1fr)'
+      default: return 'repeat(3, 1fr)'
     }
   }
 
-  // Define responsive image height
   const getImageHeight = () => {
     switch (screenSize) {
-      case 'mobile':
-        return '180px'
-      case 'tablet':
-        return '220px'
+      case 'mobile': return '180px'
+      case 'tablet': return '220px'
       case 'desktop':
-      default:
-        return '200px'
+      default: return '200px'
     }
   }
 
@@ -146,7 +117,7 @@ export default function Portfolio() {
             onClick={() => setSelectOpen(!selectOpen)}
             data-select
           >
-            <div className="select-value" data-selecct-value>
+            <div className="select-value">
               {activeFilter === 'all' ? 'Select category' : activeFilter}
             </div>
             <div className="select-icon">
@@ -157,10 +128,7 @@ export default function Portfolio() {
           <ul className="select-list">
             {filterOptions.map((filter) => (
               <li key={filter} className="select-item">
-                <button 
-                  onClick={() => handleSelectClick(filter)}
-                  data-select-item
-                >
+                <button onClick={() => handleSelectClick(filter)}>
                   {filter}
                 </button>
               </li>
@@ -183,16 +151,13 @@ export default function Portfolio() {
             <li 
               key={project.id}
               className="project-item active"
-              data-filter-item 
-              data-category={project.category}
               style={{ 
                 display: 'block',
                 animation: 'scaleUp 0.25s ease forwards'
               }}
             >
               <a 
-                href="#" 
-                aria-label={`View ${project.title} project`}
+                href="#"
                 style={{
                   display: 'block',
                   textDecoration: 'none',
@@ -201,7 +166,7 @@ export default function Portfolio() {
                 }}
               >
                 <figure 
-                  className="project-img"
+                  className="project-img project-hover-container"
                   style={{
                     position: 'relative',
                     width: '100%',
@@ -209,38 +174,7 @@ export default function Portfolio() {
                     borderRadius: '16px',
                     overflow: 'hidden',
                     marginBottom: '15px',
-                    backgroundColor: 'var(--eerie-black-1)',
-                    transition: 'transform 0.25s ease'
-                  }}
-                  onMouseEnter={(e) => {
-                    const img = e.currentTarget.querySelector('img') as HTMLImageElement | null
-                    const icon = e.currentTarget.querySelector('.project-icon') as HTMLElement | null
-                    const overlay = e.currentTarget.querySelector('.project-overlay') as HTMLElement | null
-                    
-                    if (img) {
-                      img.style.transform = 'scale(1.1)'
-                    }
-                    if (icon) {
-                      icon.style.opacity = '1'
-                    }
-                    if (overlay) {
-                      overlay.style.opacity = '0.5'
-                    }
-                  }}
-                  onMouseLeave={(e) => {
-                    const img = e.currentTarget.querySelector('img') as HTMLImageElement | null
-                    const icon = e.currentTarget.querySelector('.project-icon') as HTMLElement | null
-                    const overlay = e.currentTarget.querySelector('.project-overlay') as HTMLElement | null
-                    
-                    if (img) {
-                      img.style.transform = 'scale(1)'
-                    }
-                    if (icon) {
-                      icon.style.opacity = '0'
-                    }
-                    if (overlay) {
-                      overlay.style.opacity = '0'
-                    }
+                    backgroundColor: 'var(--eerie-black-1)'
                   }}
                 >
                   {/* Overlay */}
@@ -297,36 +231,28 @@ export default function Portfolio() {
                 </figure>
                 
                 <div style={{ padding: '0 10px' }}>
-                  <h3 
-                    className="project-title"
-                    style={{
-                      color: 'var(--white-2)',
-                      fontSize: 'var(--fs-5)',
-                      fontWeight: 'var(--fw-400)',
-                      textTransform: 'capitalize',
-                      lineHeight: '1.3',
-                      marginBottom: '5px'
-                    }}
-                  >
-                    {project.title}
-                  </h3>
-                  <p 
-                    className="project-category"
-                    style={{
-                      color: 'var(--light-gray-70)',
-                      fontSize: 'var(--fs-6)',
-                      fontWeight: 'var(--fw-300)',
-                      textTransform: 'capitalize'
-                    }}
-                  >
-                    {project.tech}
-                  </p>
+                  <h3 className="project-title">{project.title}</h3>
+                  <p className="project-category">{project.tech}</p>
                 </div>
               </a>
             </li>
           ))}
         </ul>
       </section>
+
+      <style jsx>{`
+        .project-hover-container:hover .project-overlay {
+          opacity: 0.5 !important;
+        }
+        
+        .project-hover-container:hover .project-icon {
+          opacity: 1 !important;
+        }
+        
+        .project-hover-container:hover img {
+          transform: scale(1.1) !important;
+        }
+      `}</style>
     </article>
   )
 }
