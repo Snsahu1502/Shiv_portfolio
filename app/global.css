@@ -10,6 +10,10 @@
   #CUSTOM PROPERTY
 \*-----------------------------------*/
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -342,7 +346,7 @@ main {
 
 .sidebar {
   margin-bottom: 15px;
-  max-height: 230px;
+  max-height: 120px;
   overflow: hidden;
   transition: var(--transition-2);
 }
@@ -356,7 +360,7 @@ main {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 15px;
+  gap: 10px;
 }
 
 .avatar-box {
@@ -1349,6 +1353,10 @@ textarea.form-input::-webkit-resizer {
 
   .clients-item {
     min-width: calc(33.33% - 10px);
+  }
+
+  .sidebar {
+    max-height: 200px;
   }
 
   /**

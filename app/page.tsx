@@ -30,7 +30,7 @@ export default function Home() {
   }
 
   return (
-    <main>
+    <main className="main-container">
       <Sidebar />
       <div className="main-content">
         <Navbar 
