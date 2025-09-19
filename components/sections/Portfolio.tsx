@@ -31,7 +31,7 @@ export default function Portfolio() {
       id: 1,
       title: "Trading-Bot",
       category: "web development",
-      image: "/assets/images/project-1.jpg",
+      image: "/assets/images/project-1.png",
       tech: "React.js, Tailwind CSS, MetaTrader 5",
     },
     {
@@ -45,7 +45,7 @@ export default function Portfolio() {
       id: 3,
       title: "SEO Roofer Web App",
       category: "web design",
-      image: "/assets/images/project-3.jpg",
+      image: "/assets/images/project-3.png",
       tech: "HTML, CSS, JavaScript",
     },
     {
