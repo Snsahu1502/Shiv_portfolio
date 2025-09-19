@@ -33,6 +33,7 @@ export default function Portfolio() {
       category: "web development",
       image: "/assets/images/project-1.png",
       tech: "React.js, Tailwind CSS, MetaTrader 5",
+      url: "https://trading-bot-kohl.vercel.app/",
     },
     {
       id: 2,
@@ -40,6 +41,7 @@ export default function Portfolio() {
       category: "web development",
       image: "/assets/images/project-2.png",
       tech: "MongoDB, Express.js, Node.js, EJS",
+      url: "https://wanderlust-project.up.railway.app/",
     },
     {
       id: 3,
@@ -47,6 +49,7 @@ export default function Portfolio() {
       category: "web design",
       image: "/assets/images/project-3.png",
       tech: "HTML, CSS, JavaScript",
+      url: "https://seoroofer.onrender.com/",
     },
     {
       id: 4,
@@ -54,10 +57,24 @@ export default function Portfolio() {
       category: "web development",
       image: "/assets/images/project-4.png",
       tech: "HTML, CSS, JavaScript, Node.js, SQLite3",
+      url: "https://assist4you.netlify.app/",
+    },
+    {
+      id: 5,
+      title: "Passport Photo Layout Generator",
+      category: "web application",
+      image: "/assets/images/project-5.png",
+      tech: "React.js, Next.js, TensorFlow.js, Tailwind CSS",
+      url: "https://passportphotolayoutgenerator.netlify.app/",
     },
   ];
 
-  const filterOptions = ["All", "Web design", "Web development"];
+  const filterOptions = [
+    "All",
+    "Web design",
+    "Web development",
+    "Web application",
+  ];
 
   const handleFilterClick = (filter: string) => {
     setActiveFilter(filter.toLowerCase());
@@ -162,7 +179,9 @@ export default function Portfolio() {
               style={{ display: "block" }}
             >
               <a
-                href="#"
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
                 style={{
                   display: "block",
                   textDecoration: "none",
@@ -216,7 +235,7 @@ export default function Portfolio() {
                       justifyContent: "center",
                     }}
                   >
-                    <IonIcon name="eye-outline" />
+                    <IonIcon name="open-outline" />
                   </div>
 
                   <Image
